@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Example sprite animation</title><link rel="stylesheet" href="css/main.css"><script src="js/jquery.min.js"></script><script src="js/main.js"></script></head><body><div class="logo-container"><div class="logo"></div><div class="logo-slow"></div></div><div class="logo-explained"><div class="logo-full highlighted"></div><div class="logo-separations"><div class="separation"><div class="label">1</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">2</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">3</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">4</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">5</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">6</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">7</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">8</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">9</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">10</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">11</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">12</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">13</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">14</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">15</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">16</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">17</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">18</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">19</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">20</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">21</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">22</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">23</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">24</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">25</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">26</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">27</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">28</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">29</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">30</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">31</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">32</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">33</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">34</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">35</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">36</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">37</div><div class="info">height: 40px</div></div><div class="separation"><div class="label">38</div><div class="info">height: 40px</div></div></div><div class="logo-info"><pre><code>  Sprite size:
+    height: 1520px
+    width : 132px
+
+  Styles:
+    .logo,
+    .logo-slow {
+      animation: play 1.4s steps(37) 1s forwards;
+      background: url($logo-sprite) top center;
+      height: 40px;
+      width: 132px;
+
+      &amp;.animation-stopped {
+        background-position: 0 -1480px;
+      }
+
+      &amp;.animation-hover {
+        animation: hoverPlay 1.4s steps(37) forwards;
+        cursor: pointer;
+      }
+
+      &amp;.animation-hover-slow {
+        animation: hoverPlay 10s steps(37) forwards;
+      }
+    }
+
+  JS:
+    function addHoverAni() {
+      $logoAnimation.removeClass('animation-stopped');
+      $logoAnimation.addClass('animation-hover');
+
+      setTimeout(function() {
+        $logoAnimation.removeClass('animation-hover');
+        $logoAnimation.addClass('animation-stopped')
+      }, 1300)
+    }
+
+    function addHoverAniSlow() {
+      $logoAnimationSlow.removeClass('animation-stopped');
+      $logoAnimationSlow.addClass('animation-hover-slow');
+
+      setTimeout(function() {
+        $logoAnimationSlow.removeClass('animation-hover-slow');
+        $logoAnimationSlow.addClass('animation-stopped')
+      }, 10000)
+    }
+
+    $logoAnimation.on('mouseenter', function(){
+      addHoverAni();
+    });
+
+    $logoAnimationSlow.on('mouseenter', function(){
+      addHoverAniSlow();
+    });
+</code></pre>
+</div></div></body></html>

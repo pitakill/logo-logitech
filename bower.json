@@ -1,0 +1,23 @@
+{
+  "name": "logo-logitech",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Lepoldo Caballero <git@pitakill.net>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.8",
+    "jquery": "~2.2.0",
+    "angular-route": "~1.4.8"
+  }
+}

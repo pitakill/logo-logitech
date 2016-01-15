@@ -1,0 +1,77 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Example sprite animation
+    link(rel='stylesheet' href='css/main.css')
+    script(src='js/jquery.min.js')
+    script(src='js/main.js')
+  body
+    .logo-container
+      .logo
+      .logo-slow
+    .logo-explained
+      .logo-full.highlighted
+      .logo-separations
+        - for (var i = 1; i<=38; i++)
+          .separation
+            .label= i
+            .info height: 40px
+      .logo-info
+        :markdown-it
+          ```
+            Sprite size:
+              height: 1520px
+              width : 132px
+
+            Styles:
+              .logo,
+              .logo-slow {
+                animation: play 1.4s steps(37) 1s forwards;
+                background: url($logo-sprite) top center;
+                height: 40px;
+                width: 132px;
+
+                &.animation-stopped {
+                  background-position: 0 -1480px;
+                }
+
+                &.animation-hover {
+                  animation: hoverPlay 1.4s steps(37) forwards;
+                  cursor: pointer;
+                }
+
+                &.animation-hover-slow {
+                  animation: hoverPlay 10s steps(37) forwards;
+                }
+              }
+
+            JS:
+              function addHoverAni() {
+                $logoAnimation.removeClass('animation-stopped');
+                $logoAnimation.addClass('animation-hover');
+
+                setTimeout(function() {
+                  $logoAnimation.removeClass('animation-hover');
+                  $logoAnimation.addClass('animation-stopped')
+                }, 1300)
+              }
+
+              function addHoverAniSlow() {
+                $logoAnimationSlow.removeClass('animation-stopped');
+                $logoAnimationSlow.addClass('animation-hover-slow');
+
+                setTimeout(function() {
+                  $logoAnimationSlow.removeClass('animation-hover-slow');
+                  $logoAnimationSlow.addClass('animation-stopped')
+                }, 10000)
+              }
+
+              $logoAnimation.on('mouseenter', function(){
+                addHoverAni();
+              });
+
+              $logoAnimationSlow.on('mouseenter', function(){
+                addHoverAniSlow();
+              });
+          ```
